@@ -1,10 +1,17 @@
-export default {
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
+
+const config = {
     production: {
-        token: 'YOUR_PRODUCTION_TOKEN', // Replace with your production bot token from @BotFather
-        endpoint: 'YOUR_PRODUCTION_ENDPOINT', // Will be updated after deployment
+        token: process.env.TELEGRAM_BOT_TOKEN_PROD || 'YOUR_PRODUCTION_TOKEN',
+        endpoint: process.env.TELEGRAM_ENDPOINT_PROD || 'YOUR_PRODUCTION_ENDPOINT',
     },
     development: {
-        token: 'YOUR_DEVELOPMENT_TOKEN', // Replace with your development bot token from @BotFather
-        endpoint: 'http://localhost:3000', // Local development endpoint
+        token: process.env.TELEGRAM_BOT_TOKEN_DEV || 'YOUR_DEVELOPMENT_TOKEN',
+        endpoint: process.env.TELEGRAM_ENDPOINT_DEV || 'http://localhost:3000',
     },
 };
+
+export default config;
