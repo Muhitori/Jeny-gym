@@ -2,7 +2,19 @@ import { Bot } from 'grammy';
 import { I18n } from '@grammyjs/i18n';
 import { AWSLambdaEvent, AWSLambdaResponse, BotMode, MyContext, isBotMode } from './types';
 import configuration from './configuration';
-import { handleStart, handleHelp, handleTraining, handleFood } from './commands';
+import {
+    handleStart,
+    handleHelp,
+    handleTraining,
+    handleTrainingAddProgram,
+    handleTrainingCreateProgram,
+    handleTrainingMyPrograms,
+    handleFood,
+    handleFoodAddPlan,
+    handleFoodCreatePlan,
+    handleFoodMyPlans,
+    handleBackToMain,
+} from './commands';
 
 /*--------------------
 |  B O T   C O N F   |
@@ -48,6 +60,19 @@ bot.command('help', handleHelp);
 // Register callback query handlers
 bot.callbackQuery('training', handleTraining);
 bot.callbackQuery('food', handleFood);
+
+// Training submenu handlers
+bot.callbackQuery('training_add_program', handleTrainingAddProgram);
+bot.callbackQuery('training_create_program', handleTrainingCreateProgram);
+bot.callbackQuery('training_my_programs', handleTrainingMyPrograms);
+
+// Food submenu handlers
+bot.callbackQuery('food_add_plan', handleFoodAddPlan);
+bot.callbackQuery('food_create_plan', handleFoodCreatePlan);
+bot.callbackQuery('food_my_plans', handleFoodMyPlans);
+
+// Back to main menu handler
+bot.callbackQuery('back_to_main', handleBackToMain);
 
 // Handle text messages
 bot.on('message:text', async (ctx) => {

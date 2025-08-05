@@ -4,5 +4,13 @@
 // Export command handlers
 export { handleStart } from './start';
 export { handleHelp } from './help';
-export { handleTraining } from './training';
-export { handleFood } from './food';
+export {
+    handleTraining,
+    handleTrainingAddProgram,
+    handleTrainingCreateProgram,
+    handleTrainingMyPrograms,
+} from './training';
+export { handleFood, handleFoodAddPlan, handleFoodCreatePlan, handleFoodMyPlans } from './food';
+
+// Back to main menu handler
+export { handleBackToMain } from './start';
