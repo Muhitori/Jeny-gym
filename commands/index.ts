@@ -4,3 +4,5 @@
 // Export command handlers
 export { handleStart } from './start';
 export { handleHelp } from './help';
+export { handleTraining } from './training';
+export { handleFood } from './food';

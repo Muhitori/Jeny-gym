@@ -2,7 +2,7 @@ import { Bot } from 'grammy';
 import { I18n } from '@grammyjs/i18n';
 import { AWSLambdaEvent, AWSLambdaResponse, BotMode, MyContext, isBotMode } from './types';
 import configuration from './configuration';
-import { handleStart, handleHelp } from './commands';
+import { handleStart, handleHelp, handleTraining, handleFood } from './commands';
 
 /*--------------------
 |  B O T   C O N F   |
@@ -44,6 +44,10 @@ export const handler = async (event: AWSLambdaEvent): Promise<AWSLambdaResponse>
 // Register command handlers
 bot.command('start', handleStart);
 bot.command('help', handleHelp);
+
+// Register callback query handlers
+bot.callbackQuery('training', handleTraining);
+bot.callbackQuery('food', handleFood);
 
 // Handle text messages
 bot.on('message:text', async (ctx) => {

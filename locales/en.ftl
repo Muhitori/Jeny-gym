@@ -1,5 +1,7 @@
-start = 👋 *Welcome to the Telegram Bot Template!*
-  This bot is built with Grammy and TypeScript.
+start = 🏋️‍♂️ *Добро пожаловать в бота-тренера!*
+  
+  Я помогу вам с тренировками и питанием.
+  Выберите, что вас интересует:
 
 help = 📚 *Available Commands*
   /start - Start the bot
